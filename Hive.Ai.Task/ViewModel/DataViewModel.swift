@@ -24,9 +24,8 @@ class DataViewModel {
         let searchUrl = "https://en.wikipedia.org/w/api.php?format=json&action=query&generator=search&gsrnamespace=0&gsrsearch=\(query)&gsrlimit=10&prop=pageimages%7Cextracts&pilimit=max&exintro&explaintext&exsentences=1&exlimit=max"
         Task {
             do {
-                let songsResponse: QueryResponse = try await manager.getSearchData(from: searchUrl)
-                self.data = songsResponse
-                print(songsResponse)
+                let queryResponse: QueryResponse = try await manager.getSearchData(from: searchUrl)
+                self.data = queryResponse
             } catch {
                 print(error)
             }
